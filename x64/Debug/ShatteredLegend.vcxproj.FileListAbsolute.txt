@@ -1,0 +1,2 @@
+D:\C++\ShatteredLegend\x64\Debug\ShatteredLegend.exe
+D:\C++\ShatteredLegend\x64\Debug\ShatteredLegend.pdb

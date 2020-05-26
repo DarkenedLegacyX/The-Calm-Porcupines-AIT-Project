@@ -1,0 +1,16 @@
+﻿  animated_texture.cpp
+  asset.cpp
+  assets.cpp
+  circle_2D.cpp
+  engine.cpp
+  game_object.cpp
+  game_scene.cpp
+  input.cpp
+  Main.cpp
+  player.cpp
+  scene.cpp
+  text.cpp
+  texture.cpp
+  vector_2D.cpp
+  Generating Code...
+  ShatteredLegend.vcxproj -> D:\C++\ShatteredLegend\x64\Debug\ShatteredLegend.exe
