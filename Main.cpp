@@ -26,7 +26,7 @@ int main(void)
 	{
 		Uint32 previous_frame_duration = frame_end_time_ms - frame_start_time_ms;
 		frame_start_time_ms = SDL_GetTicks();
-
+		game_scene->update(engine->window());
 		input->get_input();
 		engine->simulate(previous_frame_duration, assets, game_scene, input, config);
 

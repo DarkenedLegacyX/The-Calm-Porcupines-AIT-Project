@@ -5,6 +5,7 @@
 #include <vector>
 
 #include <SDL.h>
+#include "vector_2D.h"
 
 class Game_Object;
 
@@ -22,9 +23,13 @@ public:
 	void add_game_object(Game_Object* game_object);
 	void remove_game_object(std::string id);
 
+	Vector_2D camera_translation();
+
 	std::string id();
 
 protected:
 	std::map<std::string, Game_Object*> _game_objects;
 	std::string                         _id;
+	Vector_2D                           _camera_translation;
+
 };

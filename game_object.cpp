@@ -57,11 +57,11 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 	}
 }
 
-void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer, Configuration* config)
+void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer, Configuration* config, Scene* scene)
 {
 	SDL_Rect destination;
-	destination.x = (int)_translation.x();
-	destination.y = (int)_translation.y();
+	destination.x = (int)(_translation.x() - scene->camera_translation().x());
+	destination.y = (int)(_translation.y() - scene->camera_translation().y());
 	destination.w = _width;
 	destination.h = _height;
 

@@ -1,6 +1,7 @@
 #include "game_scene.h"
 #include "player.h"
 #include "tile.h"
+#include <iostream>
 
 Game_Scene::Game_Scene()
 	: Scene("Game")
@@ -8,7 +9,6 @@ Game_Scene::Game_Scene()
 	int tiles_x = 16;
 	int tiles_y = 16;
 	int tile_scale = 100;
-
 	int map[16][16] = { {1, 1, 1, 13, 11, 2, 1, 1, 1, 1, 1, 13, 11, 2, 1, 1},
 		{1, 1, 13, 10, 0, 3, 11, 11, 11, 11, 2, 9, 0, 4, 1, 1 },
 		{1, 1, 9, 0, 0, 0, 0, 0, 0, 0, 3, 10, 0, 3, 2, 1},
@@ -68,6 +68,30 @@ Game_Scene::~Game_Scene()
 {
 }
 
-void Game_Scene::update(SDL_Window*)
+void Game_Scene::update(SDL_Window* window)
 {
+	Game_Object* player = get_game_object("Player");
+
+	const int border = 350;
+	const int lower_border = 1600-380;
+	int w, h;
+	int movex = player->translation().x();
+	int movey = player->translation().y();
+	movex = player->translation().x();
+	movey = player->translation().y();
+	//std::cout << movex;
+	SDL_GetWindowSize(window, &w, &h);
+//	if(player->translation().x() >= 350 && player->translation().x() >= 350)
+//		_camera_translation = Vector_2D(-w / 2.f + player->width() / 2.f, -h / 2.f + player->height() / 2.f) + player->translation();
+	if (movex < border)
+		movex = border;
+	else if (movex > lower_border -70)
+		movex = lower_border - 70;
+	if (movey < border)
+		movey = border;
+	else if (movey > lower_border)
+		movey = lower_border;
+
+
+	_camera_translation = Vector_2D(-w / 2.f + player->width() / 2.f, -h / 2.f + player->height() / 2.f) + Vector_2D(movex, movey);
 }

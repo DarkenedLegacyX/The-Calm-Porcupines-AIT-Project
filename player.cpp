@@ -12,7 +12,7 @@ Player::Player(std::string id)
 {
 	_speed = 0.1f;
 
-	_translation = Vector_2D(0, 0);
+	_translation = Vector_2D(300,200);
 
 	_collider.set_radius(_width / 5.0f);
 	_collider.set_translation(Vector_2D(_width / 2.0f, (float)_height));
@@ -23,12 +23,12 @@ Player::~Player()
 {
 }
 
-void Player::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer, Configuration* config)
+void Player::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer, Configuration* config, Scene* scene)
 {
 	Animated_Texture* texture = (Animated_Texture*)assets->get_asset(_texture_id);
 	texture->update_frame(milliseconds_to_simulate);
 
-	Game_Object::render(milliseconds_to_simulate, assets, renderer, config);
+	Game_Object::render(milliseconds_to_simulate, assets, renderer, config, scene);
 }
 
 void Player::simulate_AI(Uint32, Assets* assets, Input* input, Scene*)

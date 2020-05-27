@@ -165,7 +165,7 @@ void Engine::render(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scen
 
 	for (Game_Object* game_object : sorted_game_objects)
 	{
-		game_object->render(milliseconds_to_simulate, assets, _renderer, config);
+		game_object->render(milliseconds_to_simulate, assets, _renderer, config, scene);
 	}
 
 	SDL_RenderPresent(_renderer);

@@ -5,7 +5,7 @@
 #include "scene.h"
 #include "game_object.h"
 
-Scene::Scene(std::string id)
+Scene::Scene(std::string id) : _camera_translation(0.f, 0.f)
 {
 	_id = id;
 }
@@ -49,4 +49,8 @@ void Scene::add_game_object(Game_Object* game_object)
 void Scene::remove_game_object(std::string id)
 {
 	_game_objects.erase(id);
+}
+Vector_2D Scene::camera_translation()
+{
+	return _camera_translation;
 }
