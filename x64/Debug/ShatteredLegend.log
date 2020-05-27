@@ -1,8 +1,5 @@
-﻿  game_scene.cpp
-C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(78,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(79,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(80,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(81,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(96,122): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(96,115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  ShatteredLegend.vcxproj -> C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\x64\Debug\ShatteredLegend.exe
+﻿  assets.cpp
+C:\Users\Mani\Desktop\ShatteredLegend\assets.cpp(53,43): warning C4129:  'S': unrecognized character escape sequence
+C:\Users\Mani\Desktop\ShatteredLegend\assets.cpp(53,43): warning C4129:  'M': unrecognized character escape sequence
+C:\Users\Mani\Desktop\ShatteredLegend\assets.cpp(53,43): warning C4129:  'P': unrecognized character escape sequence
+  ShatteredLegend.vcxproj -> C:\Users\Mani\Desktop\ShatteredLegend\x64\Debug\ShatteredLegend.exe
