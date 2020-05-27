@@ -1,8 +1,8 @@
 #pragma once
-
+#include <iostream>
 #include "game_object.h"
 #include "text.h"
-
+#include "tile.h"
 
 Game_Object::Game_Object(std::string id, std::string texture_id)
 	: _translation(0, 0), _velocity(0, 0), _collider(0.0f, Vector_2D(0.f, 0.f))
@@ -37,7 +37,10 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 		{
 			continue;
 		}
-
+		if (game_object->id().find("Tile"))
+		{
+		
+		}
 		Circle_2D collider = Circle_2D(_collider.radius(), _collider.translation() + _translation);
 		Circle_2D other_collider = Circle_2D(game_object->_collider.radius(), game_object->_collider.translation() + game_object->_translation);
 		float intersection_depth = collider.intersection_depth(other_collider);

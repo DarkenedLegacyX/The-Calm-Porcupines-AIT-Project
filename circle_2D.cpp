@@ -27,6 +27,7 @@ void Circle_2D::set_translation(Vector_2D translation)
 	_translation = translation;
 }
 
+
 float Circle_2D::intersection_depth(Circle_2D other)
 {
 	if (_radius == 0.0f || other._radius == 0.0f)
