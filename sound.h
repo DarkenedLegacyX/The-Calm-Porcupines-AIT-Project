@@ -1,5 +1,4 @@
 #pragma once
-
 #include "asset.h"
 
 #include <SDL_mixer.h>
