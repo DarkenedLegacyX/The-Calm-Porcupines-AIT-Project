@@ -43,6 +43,7 @@ void Input::get_input()
 		case SDL_KEYDOWN:
 			switch (event.key.keysym.scancode)
 			{
+				//W,A,S,D
 			case SDL_SCANCODE_W:
 				if (!is_button_state(Button::UP, Button_State::DOWN))
 				{
@@ -67,6 +68,32 @@ void Input::get_input()
 					_button_state[Button::RIGHT] = Button_State::PRESSED;
 				}
 				break;
+				//arrow keys
+			case SDL_SCANCODE_UP:
+				if (!is_button_state(Button::UP, Button_State::DOWN))
+				{
+					_button_state[Button::UP] = Button_State::PRESSED;
+				}
+				break;
+			case SDL_SCANCODE_LEFT:
+				if (!is_button_state(Button::LEFT, Button_State::DOWN))
+				{
+					_button_state[Button::LEFT] = Button_State::PRESSED;
+				}
+				break;
+			case SDL_SCANCODE_DOWN:
+				if (!is_button_state(Button::DOWN, Button_State::DOWN))
+				{
+					_button_state[Button::DOWN] = Button_State::PRESSED;
+				}
+				break;
+			case SDL_SCANCODE_RIGHT:
+				if (!is_button_state(Button::RIGHT, Button_State::DOWN))
+				{
+					_button_state[Button::RIGHT] = Button_State::PRESSED;
+				}
+				break;
+				//Shift
 			case SDL_SCANCODE_LSHIFT:
 				if (!is_button_state(Button::RUNNING, Button_State::DOWN))
 				{
@@ -78,6 +105,7 @@ void Input::get_input()
 		case SDL_KEYUP:
 			switch (event.key.keysym.scancode)
 			{
+				// W, A, S, D
 			case SDL_SCANCODE_W:
 				_button_state[Button::UP] = Button_State::RELEASED;
 				break;
@@ -90,6 +118,20 @@ void Input::get_input()
 			case SDL_SCANCODE_D:
 				_button_state[Button::RIGHT] = Button_State::RELEASED;
 				break;
+				//arrow keys
+			case SDL_SCANCODE_UP:
+				_button_state[Button::UP] = Button_State::RELEASED;
+				break;
+			case SDL_SCANCODE_LEFT:
+				_button_state[Button::LEFT] = Button_State::RELEASED;
+				break;
+			case SDL_SCANCODE_DOWN:
+				_button_state[Button::DOWN] = Button_State::RELEASED;
+				break;
+			case SDL_SCANCODE_RIGHT:
+				_button_state[Button::RIGHT] = Button_State::RELEASED;
+				break;
+				//Shift
 			case SDL_SCANCODE_LSHIFT:
 				_button_state[Button::RUNNING] = Button_State::RELEASED;
 				break;

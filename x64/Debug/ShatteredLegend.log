@@ -1,2 +1,5 @@
-﻿  game_object.cpp
-  ShatteredLegend.vcxproj -> C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\x64\Debug\ShatteredLegend.exe
+﻿  assets.cpp
+C:\Users\Mani\Desktop\ShatteredLegend\assets.cpp(53,43): warning C4129:  'S': unrecognized character escape sequence
+C:\Users\Mani\Desktop\ShatteredLegend\assets.cpp(53,43): warning C4129:  'M': unrecognized character escape sequence
+C:\Users\Mani\Desktop\ShatteredLegend\assets.cpp(53,43): warning C4129:  'P': unrecognized character escape sequence
+  ShatteredLegend.vcxproj -> C:\Users\Mani\Desktop\ShatteredLegend\x64\Debug\ShatteredLegend.exe
