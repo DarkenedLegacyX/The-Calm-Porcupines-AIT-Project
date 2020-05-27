@@ -54,3 +54,7 @@ Vector_2D Scene::camera_translation()
 {
 	return _camera_translation;
 }
+SDL_Color Scene::background_color()
+{
+	return _background_color;
+}

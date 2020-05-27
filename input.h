@@ -12,6 +12,8 @@ public:
 	{
 		QUIT,
 
+		COMBAT,
+
 		UP,
 		DOWN,
 		LEFT,

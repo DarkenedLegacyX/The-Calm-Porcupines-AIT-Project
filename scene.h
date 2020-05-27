@@ -26,10 +26,10 @@ public:
 	Vector_2D camera_translation();
 
 	std::string id();
-
+	SDL_Color background_color();
 protected:
 	std::map<std::string, Game_Object*> _game_objects;
 	std::string                         _id;
 	Vector_2D                           _camera_translation;
-
+	SDL_Color                           _background_color;
 };

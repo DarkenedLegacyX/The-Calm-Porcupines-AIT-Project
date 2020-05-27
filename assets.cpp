@@ -55,12 +55,12 @@ Assets::Assets(SDL_Renderer* renderer)
 	
 
 	// Create music sound
-	{
-		Sound* sound = new Sound("Sound.Music", "Assets\ShatteredLegend Resources\Music8-Bit\Persona 5 - Price [8-bit VRC6+MMC5].mp3");
-		_assets[sound->id()] = sound;
+	//{
+	//	Sound* sound = new Sound("Sound.Music", "Assets/ShatteredLegend Resources/Music8-Bit/Persona 5 - Price [8-bit VRC6+MMC5].mp3");
+	//	_assets[sound->id()] = sound;
 
-		Mix_PlayChannel(0, sound->data(), -1);
-	}
+	//	Mix_PlayChannel(0, sound->data(), -1);
+	//}
 
 	// Create walking sound
 	{

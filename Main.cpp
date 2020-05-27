@@ -1,10 +1,12 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <stack>
 
 #include "engine.h"
 #include "assets.h"
 #include "game_scene.h"
+#include "combat_scene.h"
 #include "input.h"
 #include "configuration.h"
 
@@ -13,8 +15,10 @@ int main(void)
 	Configuration* config = new Configuration();
 	Engine* engine = new Engine("Game", config);
 	Assets* assets = new Assets(engine->renderer());
-	Scene* game_scene = new Game_Scene();
 	Input* input = new Input();
+
+	std::stack<Scene*> scenes;
+	scenes.push(new Game_Scene());
 
 	const Uint32 milliseconds_per_seconds = 1000;
 	const Uint32 frames_per_second = 60;
@@ -26,9 +30,27 @@ int main(void)
 	{
 		Uint32 previous_frame_duration = frame_end_time_ms - frame_start_time_ms;
 		frame_start_time_ms = SDL_GetTicks();
-		game_scene->update(engine->window());
+
 		input->get_input();
-		engine->simulate(previous_frame_duration, assets, game_scene, input, config);
+
+		if (input->is_button_state(Input::Button::COMBAT, Input::Button_State::PRESSED))
+		{
+			const bool is_paused = scenes.top()->id() == "Combat";
+
+			if (is_paused)
+			{
+				Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
+				scenes.pop();
+				delete combat_scene;
+			}
+			else
+			{
+				scenes.push(new Combat_Scene);
+			}
+		}
+
+		scenes.top()->update(engine->window());
+		engine->simulate(previous_frame_duration, assets, scenes.top(), input, config);
 
 		const Uint32 current_time_ms = SDL_GetTicks();
 		const Uint32 frame_duration_ms = current_time_ms - frame_start_time_ms;

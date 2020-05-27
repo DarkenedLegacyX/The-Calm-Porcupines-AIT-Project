@@ -92,6 +92,12 @@ void Input::get_input()
 				{
 					_button_state[Button::RIGHT] = Button_State::PRESSED;
 				}
+			case SDL_SCANCODE_B:
+				if (!is_button_state(Button::COMBAT, Button_State::DOWN))
+				{
+					_button_state[Button::COMBAT] = Button_State::PRESSED;
+				}
+				break;
 				break;
 				//Shift
 			case SDL_SCANCODE_LSHIFT:
@@ -134,6 +140,9 @@ void Input::get_input()
 				//Shift
 			case SDL_SCANCODE_LSHIFT:
 				_button_state[Button::RUNNING] = Button_State::RELEASED;
+				break;
+			case SDL_SCANCODE_B:
+				_button_state[Button::COMBAT] = Button_State::RELEASED;
 				break;
 			}
 			break;
