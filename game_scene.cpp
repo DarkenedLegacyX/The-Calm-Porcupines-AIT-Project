@@ -73,7 +73,7 @@ void Game_Scene::update(SDL_Window* window)
 	Game_Object* player = get_game_object("Player");
 
 	const int border = 350;
-	const int lower_border = 1600-380;
+	const int lower_border = 1600-450;
 	int w, h;
 	int movex = player->translation().x();
 	int movey = player->translation().y();
@@ -85,8 +85,8 @@ void Game_Scene::update(SDL_Window* window)
 //		_camera_translation = Vector_2D(-w / 2.f + player->width() / 2.f, -h / 2.f + player->height() / 2.f) + player->translation();
 	if (movex < border)
 		movex = border;
-	else if (movex > lower_border -70)
-		movex = lower_border - 70;
+	else if (movex > lower_border)
+		movex = lower_border;
 	if (movey < border)
 		movey = border;
 	else if (movey > lower_border)
