@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+
 Sound::Sound(std::string id, std::string path)
 	: Asset(id)
 {

@@ -40,12 +40,40 @@ void Player::simulate_AI(Uint32, Assets* assets, Input* input, Scene*)
 		{
 			push_state(State::Running, assets);
 		}
-		else if (_velocity.magnitude() > 0.0f)
+		else if (input->is_button_state(Input::Button::LEFT, Input::Button_State::DOWN) || input->is_button_state(Input::Button::RIGHT, Input::Button_State::DOWN) && _velocity.magnitude() > 0.0f)
 		{
 			push_state(State::Walking, assets);
 		}
+		else if (input->is_button_state(Input::Button::UP, Input::Button_State::DOWN) && _velocity.magnitude() > 0.0f)
+		{
+			push_state(State::WalkingUp, assets);
+		}
+		else if (input->is_button_state(Input::Button::DOWN, Input::Button_State::DOWN) && _velocity.magnitude() > 0.0f)
+		{
+			push_state(State::WalkingDown, assets);
+		}
 		break;
 	case State::Walking:
+		if (_velocity.magnitude() == 0.0f)
+		{
+			pop_state(assets);
+		}
+		else if (input->is_button_state(Input::Button::RUNNING, Input::Button_State::PRESSED))
+		{
+			push_state(State::Running, assets);
+		}
+		break;
+	case State::WalkingUp:
+		if (_velocity.magnitude() == 0.0f)
+		{
+			pop_state(assets);
+		}
+		else if (input->is_button_state(Input::Button::RUNNING, Input::Button_State::PRESSED))
+		{
+			push_state(State::Running, assets);
+		}
+		break;
+	case State::WalkingDown:
 		if (_velocity.magnitude() == 0.0f)
 		{
 			pop_state(assets);
@@ -127,6 +155,25 @@ void Player::handle_enter_state(State state, Assets* assets)
 	case State::Walking:
 	{
 		_texture_id = "Texture.Player.Walking";
+		_speed = 0.15f;
+		/*const int walking_channel = 1;
+		Sound* sound = (Sound*)assets->get_asset("Sound.Walking");
+		Mix_PlayChannel(walking_channel, sound->data(), -1);*/
+		break;
+	}
+	case State::WalkingUp:
+	{
+		_texture_id = "Texture.Player.Walking.Up";
+		_speed = 0.15f;
+		/*const int walking_channel = 1;
+		Sound* sound = (Sound*)assets->get_asset("Sound.Walking");
+		Mix_PlayChannel(walking_channel, sound->data(), -1);*/
+		break;
+	}
+
+	case State::WalkingDown:
+	{
+		_texture_id = "Texture.Player.Walking.Down";
 		_speed = 0.15f;
 		/*const int walking_channel = 1;
 		Sound* sound = (Sound*)assets->get_asset("Sound.Walking");
