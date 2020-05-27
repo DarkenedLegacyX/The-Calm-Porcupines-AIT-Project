@@ -38,6 +38,16 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[texture->id()] = texture;
 	}
 
+	// Create tile texture
+	for(int i = 0; i <14; ++i)
+	{
+		std::string id = "Texture.Tile" + std::to_string(i);
+		std::string path = "Assets/tile" + std::to_string(i) + ".png";
+		Texture* texture = new Texture(id, path, renderer);
+		_assets[texture->id()] = texture;
+	}
+	
+
 	// Create music sound
 	{
 		//Sound* sound = new Sound("Sound.Music", "Assets/music.wav");

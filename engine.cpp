@@ -150,6 +150,14 @@ void Engine::render(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scen
 	{
 		bool operator()(Game_Object* a, Game_Object* b)
 		{
+			if (a->id().find("Tile") != -1 && b->id().find("Tile") == -1)
+			{
+				return true;
+			}
+			else if (a->id().find("Tile") == -1 && b->id().find("Tile") != -1)
+			{
+				return false;
+			}
 			return a->translation().y() < b->translation().y();
 		}
 	} sort_by_y_order;

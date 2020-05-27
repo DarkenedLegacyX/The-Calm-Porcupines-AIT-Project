@@ -150,10 +150,12 @@
     <ClCompile Include="game_scene.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="text.cpp" />
     <ClCompile Include="texture.cpp" />
+    <ClCompile Include="tile.cpp" />
     <ClCompile Include="vector_2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,10 +168,12 @@
     <ClInclude Include="game_object.h" />
     <ClInclude Include="game_scene.h" />
     <ClInclude Include="input.h" />
+    <ClInclude Include="map.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="text.h" />
     <ClInclude Include="texture.h" />
+    <ClInclude Include="tile.h" />
     <ClInclude Include="vector_2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

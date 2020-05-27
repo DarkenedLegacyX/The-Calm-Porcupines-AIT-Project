@@ -1,9 +1,47 @@
 #include "game_scene.h"
 #include "player.h"
+#include "tile.h"
 
 Game_Scene::Game_Scene()
 	: Scene("Game")
 {
+	int tiles_x = 16;
+	int tiles_y = 16;
+	int tile_scale = 100;
+
+	int map[16][16] = { {1, 1, 1, 13, 11, 2, 1, 1, 1, 1, 1, 13, 11, 2, 1, 1},
+		{1, 1, 13, 10, 0, 3, 11, 11, 11, 11, 2, 9, 0, 4, 1, 1 },
+		{1, 1, 9, 0, 0, 0, 0, 0, 0, 0, 3, 10, 0, 3, 2, 1},
+		{1, 1, 8, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1},
+		{1, 1, 1, 8, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1},
+		{1, 1, 1, 1, 8, 12, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1},
+		{1, 1, 1, 13, 11, 10, 0, 0, 0, 0, 0, 0, 0, 7, 5, 1},
+		{1, 1, 13, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 1},
+		{13, 11, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 5, 1, 1},
+		{9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 6, 5, 1, 1, 1},
+		{9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 11, 11, 11, 2, 1},
+		{9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1},
+		{9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2},
+		{8, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 12, 0, 0, 4},
+		{1, 9, 0, 0, 0, 7, 12, 0, 0, 7, 6, 5, 9, 0, 0, 4},
+		{1, 8, 6, 6, 6, 5, 8, 6, 6, 5, 1, 1, 8, 6, 6, 5}};
+
+	for (int y = 0; y < tiles_y; ++y)
+	{
+		for (int x = 0; x < tiles_x; ++x)
+		{
+			std::string id = "Tile.X." + std::to_string(x) + ".Y." + std::to_string(y);
+			std::string texture_id = "";
+
+			texture_id = "Texture.Tile" + std::to_string(map[y][x]);
+
+			Tile* tile = new Tile(
+				id, texture_id,
+				Vector_2D((float)x * (float)tile_scale, (float)y * (float)tile_scale),
+				tile_scale);
+			_game_objects[tile->id()] = tile;
+		}
+	}
 	/*
 	Game_Object* dino = new Dino("Dino");
 	_game_objects[dino->id()] = dino;
@@ -20,6 +58,7 @@ Game_Scene::Game_Scene()
 	Game_Object* portal_exit = new Portal_Exit();
 	_game_objects[portal_exit->id()] = portal_exit;
 	*/
+
 
 	add_game_object(new Player("Player"));
 
