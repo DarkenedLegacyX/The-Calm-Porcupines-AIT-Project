@@ -15,6 +15,8 @@ public:
 
 	float intersection_depth(Circle_2D other);
 
+	Vector_2D check_distance(Vector_2D translation);
+
 private:
 	float _radius;
 	Vector_2D _translation;

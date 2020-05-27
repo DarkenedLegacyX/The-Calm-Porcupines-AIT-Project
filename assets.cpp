@@ -10,12 +10,18 @@ Assets::Assets(SDL_Renderer* renderer)
 
 	// Create player walking texture.
 	{
-		const int frame_count = 10;
+		const int frame_count = 9;
 		const Uint32 frame_duration_milliseconds = 100;
-		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Walking", "Assets/player.walking.png", renderer, frame_count, frame_duration_milliseconds);
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Walking", "Assets/player.right.png", renderer, frame_count, frame_duration_milliseconds);
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
-
+	// Create player dead texture.
+	{
+		const int frame_count = 6;
+		const Uint32 frame_duration_milliseconds = 100;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Dead", "Assets/player.dead.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
 	// Create player running texture.
 	{
 		const int frame_count = 10;

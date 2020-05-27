@@ -38,7 +38,7 @@ Game_Scene::Game_Scene()
 			Tile* tile = new Tile(
 				id, texture_id,
 				Vector_2D((float)x * (float)tile_scale, (float)y * (float)tile_scale),
-				tile_scale);
+				tile_scale, map[y][x]);
 			_game_objects[tile->id()] = tile;
 		}
 	}

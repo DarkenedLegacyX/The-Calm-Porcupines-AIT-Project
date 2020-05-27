@@ -8,11 +8,13 @@ class Tile : public Game_Object
 {
 public:
     
-    Tile(std::string id, std::string texture_id, Vector_2D translation, int scale);
+    Tile(std::string id, std::string texture_id, Vector_2D translation, int scale, int type);
     ~Tile();
-    void simulate_AI(Uint32, Assets*, Input*, Scene*);
+    virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input, Scene* scene) override;
    
-
+    int get_type();
+    SDL_Rect get_collider();
 private:
-
+    int _type;
+    SDL_Rect _collider;
 };
