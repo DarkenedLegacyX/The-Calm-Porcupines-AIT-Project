@@ -21,6 +21,8 @@ public:
 	{
 		Idle,
 		Walking,
+		WalkingUp,
+		WalkingDown,
 		Running
 	};
 	void push_state(State state, Assets* assets);

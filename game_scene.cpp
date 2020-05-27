@@ -25,10 +25,10 @@ Game_Scene::Game_Scene()
 		{8, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 12, 0, 0, 4},
 		{1, 9, 0, 0, 0, 7, 12, 0, 0, 7, 6, 5, 9, 0, 0, 4},
 		{1, 8, 6, 6, 6, 5, 8, 6, 6, 5, 1, 1, 8, 6, 6, 5}};
-
-	for (int y = 0; y < tiles_y; ++y)
+	//Temporary to make it smooth for now.
+	for (int y = 0; y < 8; ++y)
 	{
-		for (int x = 0; x < tiles_x; ++x)
+		for (int x = 0; x < 8; ++x)
 		{
 			std::string id = "Tile.X." + std::to_string(x) + ".Y." + std::to_string(y);
 			std::string texture_id = "";

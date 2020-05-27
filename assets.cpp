@@ -10,9 +10,25 @@ Assets::Assets(SDL_Renderer* renderer)
 
 	// Create player walking texture.
 	{
-		const int frame_count = 10;
+		const int frame_count = 9;
 		const Uint32 frame_duration_milliseconds = 100;
-		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Walking", "Assets/player.walking.png", renderer, frame_count, frame_duration_milliseconds);
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Walking", "Assets/ShatteredLegendResources/player.walking.right.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
+
+	// Create player walking Up texture.
+	{
+		const int frame_count = 9;
+		const Uint32 frame_duration_milliseconds = 100;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Walking.Up", "Assets/ShatteredLegendResources/player.walking.up.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
+
+	// Create player walking Down texture.
+	{
+		const int frame_count = 9;
+		const Uint32 frame_duration_milliseconds = 100;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Walking.Down", "Assets/ShatteredLegendResources/player.walking.down.png", renderer, frame_count, frame_duration_milliseconds);
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
@@ -26,9 +42,9 @@ Assets::Assets(SDL_Renderer* renderer)
 
 	// Create player idle texture.
 	{
-		const int frame_count = 10;
-		const Uint32 frame_duration_milliseconds = 50;
-		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Idle", "Assets/player.idle.png", renderer, frame_count, frame_duration_milliseconds);
+		const int frame_count = 2;
+		const Uint32 frame_duration_milliseconds = 500;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Idle", "Assets/ShatteredLegendResources/player.idle.down.png", renderer, frame_count, frame_duration_milliseconds);
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
