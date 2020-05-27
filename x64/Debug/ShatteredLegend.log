@@ -1,2 +1,28 @@
-﻿  assets.cpp
-  ShatteredLegend.vcxproj -> C:\Users\Mani\Desktop\ShatteredLegend\x64\Debug\ShatteredLegend.exe
+﻿  animated_texture.cpp
+  asset.cpp
+  assets.cpp
+  circle_2D.cpp
+  combat_scene.cpp
+  engine.cpp
+  game_object.cpp
+  game_scene.cpp
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(82,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(83,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(84,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(85,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(100,122): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(100,115): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  input.cpp
+  Main.cpp
+  map.cpp
+  player.cpp
+  scene.cpp
+  sound.cpp
+  text.cpp
+  texture.cpp
+  tile.cpp
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\tile.cpp(11,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\tile.cpp(12,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  vector_2D.cpp
+  Generating Code...
+  ShatteredLegend.vcxproj -> C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\x64\Debug\ShatteredLegend.exe
