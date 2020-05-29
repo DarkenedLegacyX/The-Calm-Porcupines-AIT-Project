@@ -1,39 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="asset.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="assets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vector_2D.cpp">
+    <ClCompile Include="circle_2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="combat_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="game_object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="circle_2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="game_scene.cpp">
@@ -42,43 +25,45 @@
     <ClCompile Include="input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="animated_texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="text.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tile.cpp">
+    <ClCompile Include="menu_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pause_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="menu_scene.cpp">
+    <ClCompile Include="text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pause_scene.cpp">
-=======
-    <ClCompile Include="combat_scene.cpp">
->>>>>>> d9d769ef3a9f8970dfecca9cf2f42ad428f727e2
+    <ClCompile Include="texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vector_2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animated_texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="engine.h">
+    <ClInclude Include="animated_texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="asset.h">
@@ -87,16 +72,19 @@
     <ClInclude Include="assets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vector_2D.h">
+    <ClInclude Include="circle_2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="combat_scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="configuration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="game_object.h">
+    <ClInclude Include="engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="circle_2D.h">
+    <ClInclude Include="game_object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game_scene.h">
@@ -105,39 +93,43 @@
     <ClInclude Include="input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="scene.h">
+    <ClInclude Include="map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="menu_scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pause_scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="animated_texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="tile.h">
+    <ClInclude Include="scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="menu_scene.h">
+    <ClInclude Include="text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pause_scene.h">
-=======
-    <ClInclude Include="combat_scene.h">
->>>>>>> d9d769ef3a9f8970dfecca9cf2f42ad428f727e2
+    <ClInclude Include="texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vector_2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{8f01d989-ccfc-4744-b696-cef2bc7e36df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9ebf98cc-457c-45fa-92ad-c2152a0959f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
