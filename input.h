@@ -12,8 +12,10 @@ public:
 	{
 		QUIT,
 
+		HEAD,
 		SPACE,
 		PAUSE,
+		COMBAT,
 
 		UP,
 		DOWN,

@@ -6,6 +6,7 @@
 #include "engine.h"
 #include "assets.h"
 #include "game_scene.h"
+#include "combat_scene.h"
 #include "input.h"
 #include "configuration.h"
 #include "menu_scene.h"
@@ -17,7 +18,6 @@ int main(void)
 	Configuration* config = new Configuration();
 	Engine* engine = new Engine("Game", config);
 	Assets* assets = new Assets(engine->renderer());
-	Scene* game_scene = new Game_Scene();
 	Input* input = new Input();
 
 	std::stack<Scene*> scenes;
@@ -33,46 +33,59 @@ int main(void)
 	Uint32 frame_end_time_ms = frame_time_ms;
 	while (!input->is_button_state(Input::Button::QUIT, Input::Button_State::PRESSED))
 	{
-		Uint32 previous_frame_duration = frame_end_time_ms - frame_start_time_ms;
-		frame_start_time_ms = SDL_GetTicks();
-		game_scene->update(engine->window());
-		input->get_input();
-		engine->simulate(previous_frame_duration, assets, game_scene, input, config);
-		if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED))
-		{
-			is_played = true;
-			scenes.push(new Game_Scene);
-		}
-
-		if (input->is_button_state(Input::Button::PAUSE, Input::Button_State::PRESSED) && is_played == true)
-		{
-			const bool is_paused = scenes.top()->id() == "Pause";
-			std::cout << "pause" << std::endl;
-			if (is_paused)
+			Uint32 previous_frame_duration = frame_end_time_ms - frame_start_time_ms;
+			frame_start_time_ms = SDL_GetTicks();
+			input->get_input();
+			if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED) && is_played == false)
 			{
-				Pause_Scene* pause_scene = (Pause_Scene*)scenes.top();
-				scenes.pop();
-				delete pause_scene;
+				std::cout << "Play" << std::endl;
+				is_played = true;
+				scenes.push(new Game_Scene);
 			}
-			else
+
+			if (input->is_button_state(Input::Button::PAUSE, Input::Button_State::PRESSED) && is_played == true)
 			{
-				scenes.push(new Pause_Scene);
+				const bool is_paused = scenes.top()->id() == "Pause";
+				std::cout << "pause" << std::endl;
+				if (is_paused)
+				{
+					Pause_Scene* pause_scene = (Pause_Scene*)scenes.top();
+					scenes.pop();
+					delete pause_scene;
+				}
+				else
+				{
+					scenes.push(new Pause_Scene);
+
+				}
+			}					
+			if (input->is_button_state(Input::Button::COMBAT, Input::Button_State::PRESSED) && is_played == true)
+					{
+						const bool is_paused = scenes.top()->id() == "Combat";
+						std::cout << "Battle" << std::endl;
+
+						if (is_paused)
+						{
+							Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
+							scenes.pop();
+							delete combat_scene;
+						}
+						else
+						{
+							scenes.push(new Combat_Scene);
+						}
 			}
-		}
+			scenes.top()->update(engine->window());
+			engine->simulate(previous_frame_duration, assets, scenes.top(), input, config);
 
-		scenes.top()->update(engine->window());
-		engine->simulate(previous_frame_duration, assets, scenes.top(), input, config);
-
-		const Uint32 current_time_ms = SDL_GetTicks();
-		const Uint32 frame_duration_ms = current_time_ms - frame_start_time_ms;
-		if (frame_duration_ms < frame_time_ms)
-		{
-			const Uint32 time_to_sleep_for = frame_time_ms - frame_duration_ms;
-			std::this_thread::sleep_for(std::chrono::milliseconds(time_to_sleep_for));
-		}
-
-		frame_end_time_ms = SDL_GetTicks();
+			const Uint32 current_time_ms = SDL_GetTicks();
+			const Uint32 frame_duration_ms = current_time_ms - frame_start_time_ms;
+			if (frame_duration_ms < frame_time_ms)
+			{
+				const Uint32 time_to_sleep_for = frame_time_ms - frame_duration_ms;
+				std::this_thread::sleep_for(std::chrono::milliseconds(time_to_sleep_for));
+			}		
+			frame_end_time_ms = SDL_GetTicks();
 	}
-
-	return 0;
+		return 0;
 }

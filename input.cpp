@@ -93,6 +93,12 @@ void Input::get_input()
 					_button_state[Button::RIGHT] = Button_State::PRESSED;
 				}
 				break;
+			case SDL_SCANCODE_B:
+				if (!is_button_state(Button::COMBAT, Button_State::DOWN))
+				{
+					_button_state[Button::COMBAT] = Button_State::PRESSED;
+				}
+				break;
 				//Shift
 			//case SDL_SCANCODE_LSHIFT:
 				//if (!is_button_state(Button::RUNNING, Button_State::DOWN))
@@ -143,18 +149,18 @@ void Input::get_input()
 			case SDL_SCANCODE_RIGHT:
 				_button_state[Button::RIGHT] = Button_State::RELEASED;
 				break;
-				//Shift
+			//Shift
 			//case SDL_SCANCODE_LSHIFT:
 			//	_button_state[Button::RUNNING] = Button_State::RELEASED;
 			//	break;
 			case SDL_SCANCODE_SPACE:
-				if (!is_button_state(Button::SPACE, Button_State::DOWN))
-				{
-					_button_state[Button::SPACE] = Button_State::RELEASED;
-				}
+				_button_state[Button::SPACE] = Button_State::RELEASED;
 				break;
 			case SDL_SCANCODE_ESCAPE:
 				_button_state[Button::PAUSE] = Button_State::RELEASED;
+				break;
+			case SDL_SCANCODE_B:
+				_button_state[Button::COMBAT] = Button_State::RELEASED;
 				break;
 			}
 			break;

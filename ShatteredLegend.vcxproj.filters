@@ -66,10 +66,14 @@
     <ClCompile Include="sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="menu_scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pause_scene.cpp">
+=======
+    <ClCompile Include="combat_scene.cpp">
+>>>>>>> d9d769ef3a9f8970dfecca9cf2f42ad428f727e2
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,10 +129,14 @@
     <ClInclude Include="sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="menu_scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="pause_scene.h">
+=======
+    <ClInclude Include="combat_scene.h">
+>>>>>>> d9d769ef3a9f8970dfecca9cf2f42ad428f727e2
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

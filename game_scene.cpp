@@ -6,6 +6,10 @@
 Game_Scene::Game_Scene()
 	: Scene("Game")
 {
+	_background_color.r = 255;
+	_background_color.g = 0;
+	_background_color.b = 255;
+
 	int tiles_x = 16;
 	int tiles_y = 16;
 	int tile_scale = 100;
