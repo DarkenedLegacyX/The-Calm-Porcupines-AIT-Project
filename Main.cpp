@@ -1,12 +1,16 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <stack>
 
 #include "engine.h"
 #include "assets.h"
 #include "game_scene.h"
 #include "input.h"
 #include "configuration.h"
+#include "menu_scene.h"
+#include "pause_scene.h"
+
 
 int main(void)
 {
@@ -16,9 +20,14 @@ int main(void)
 	Scene* game_scene = new Game_Scene();
 	Input* input = new Input();
 
+	std::stack<Scene*> scenes;
+	scenes.push(new Menu_Scene());
+
 	const Uint32 milliseconds_per_seconds = 1000;
 	const Uint32 frames_per_second = 60;
 	const Uint32 frame_time_ms = milliseconds_per_seconds / frames_per_second;
+
+	bool is_played = false;
 
 	Uint32 frame_start_time_ms = 0;
 	Uint32 frame_end_time_ms = frame_time_ms;
@@ -29,6 +38,30 @@ int main(void)
 		game_scene->update(engine->window());
 		input->get_input();
 		engine->simulate(previous_frame_duration, assets, game_scene, input, config);
+		if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED))
+		{
+			is_played = true;
+			scenes.push(new Game_Scene);
+		}
+
+		if (input->is_button_state(Input::Button::PAUSE, Input::Button_State::PRESSED) && is_played == true)
+		{
+			const bool is_paused = scenes.top()->id() == "Pause";
+			std::cout << "pause" << std::endl;
+			if (is_paused)
+			{
+				Pause_Scene* pause_scene = (Pause_Scene*)scenes.top();
+				scenes.pop();
+				delete pause_scene;
+			}
+			else
+			{
+				scenes.push(new Pause_Scene);
+			}
+		}
+
+		scenes.top()->update(engine->window());
+		engine->simulate(previous_frame_duration, assets, scenes.top(), input, config);
 
 		const Uint32 current_time_ms = SDL_GetTicks();
 		const Uint32 frame_duration_ms = current_time_ms - frame_start_time_ms;

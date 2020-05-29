@@ -40,12 +40,12 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 	// Create player running texture.
-	{
-		const int frame_count = 10;
-		const Uint32 frame_duration_milliseconds = 100;
-		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Running", "Assets/player.running.png", renderer, frame_count, frame_duration_milliseconds);
-		_assets[player_animated_texture->id()] = player_animated_texture;
-	}
+	//{
+	//	const int frame_count = 10;
+	//	const Uint32 frame_duration_milliseconds = 100;
+	//	Asset* player_animated_texture = new Animated_Texture("Texture.Player.Running", "Assets/player.running.png", renderer, frame_count, frame_duration_milliseconds);
+	//	_assets[player_animated_texture->id()] = player_animated_texture;
+	//}
 
 	// Create player idle texture.
 	{
@@ -73,7 +73,7 @@ Assets::Assets(SDL_Renderer* renderer)
 
 	// Create music sound
 	{
-		Sound* sound = new Sound("Sound.Music", "Assets/ShatteredLegendResources/Music8-Bit/Persona5Price8Bit.mp3");
+		Sound* sound = new Sound("Sound.Music", "Assets/ShatteredLegendResources/Music8-Bit/Persona 5 The Royal - Take Over [8-bit VRC6] (ft. sen-pi).mp3");
 		_assets[sound->id()] = sound;
 
 		Mix_PlayChannel(0, sound->data(), -1);

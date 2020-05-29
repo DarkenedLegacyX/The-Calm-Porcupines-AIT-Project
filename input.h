@@ -12,6 +12,9 @@ public:
 	{
 		QUIT,
 
+		SPACE,
+		PAUSE,
+
 		UP,
 		DOWN,
 		LEFT,
