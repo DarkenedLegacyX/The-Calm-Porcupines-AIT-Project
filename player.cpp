@@ -145,6 +145,46 @@ void Player::pop_state(Assets* assets)
 	handle_enter_state(_state.top(), assets);
 }
 
+void Player::setupStats(int _hp, int _str, int _def)
+{
+	hp = _hp;
+	hpMax = _hp;
+	str = _str;
+	def = _def;
+}
+
+int Player::getHP()
+{
+	return hp;
+}
+
+int Player::getHPMax()
+{
+	return hpMax;
+}
+
+
+int Player::getDamage()
+{
+	return str;
+}
+
+void Player::takeDamage(int dmg)
+{
+	int dmgAfterDef = dmg - def;
+	if (dmgAfterDef < 1)
+		dmgAfterDef = 1;
+
+	hp = hp - dmgAfterDef;
+}
+
+void Player::displayStats()
+{
+	std::cout << "Name: ZuzaNesh" << std::endl;
+	std::cout << "hp: " << hp << "/" << hpMax << " str: " << str << " def: " << def << std::endl;
+}
+
+
 void Player::handle_enter_state(State state, Assets* assets)
 {
 	switch (state)

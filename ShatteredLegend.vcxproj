@@ -146,6 +146,7 @@
     <ClCompile Include="assets.cpp" />
     <ClCompile Include="circle_2D.cpp" />
     <ClCompile Include="combat_scene.cpp" />
+    <ClCompile Include="enemy.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="game_object.cpp" />
     <ClCompile Include="game_scene.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="circle_2D.h" />
     <ClInclude Include="combat_scene.h" />
     <ClInclude Include="configuration.h" />
+    <ClInclude Include="enemy.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />
     <ClInclude Include="game_scene.h" />

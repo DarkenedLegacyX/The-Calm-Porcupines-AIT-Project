@@ -79,8 +79,8 @@ void Game_Scene::update(SDL_Window* window)
 	const int border = 350;
 	const int lower_border = 1600-450;
 	int w, h;
-	int movex = player->translation().x();
-	int movey = player->translation().y();
+	float movex = player->translation().x();
+	float movey = player->translation().y();
 	movex = player->translation().x();
 	movey = player->translation().y();
 	//std::cout << movex;
