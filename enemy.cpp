@@ -7,7 +7,7 @@ Enemy::Enemy()
 	hpMax = 10;
 	str = 4;
 	def = 2;
-	agi = 3;
+	//agi = 3;
 }
 
 Enemy::~Enemy()

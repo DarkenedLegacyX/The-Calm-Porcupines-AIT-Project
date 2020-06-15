@@ -8,10 +8,8 @@ Tile::Tile(std::string id, std::string texture_id, Vector_2D translation, int sc
 	_translation = translation;
 	_width = scale;
 	_height = scale;
-	_collider.x = translation.x();
-	_collider.y = translation.y();
-	_collider.w = scale;
-	_collider.h = scale;
+	_collider.set_radius(_width / 2.0f);
+	_collider.set_translation(Vector_2D(_width / 2.0f, (float)_height / 1.5f));
 	_type = type;
 }
 Tile::~Tile()
@@ -26,10 +24,6 @@ int Tile::get_type()
 	return _type;
 }
 
-SDL_Rect Tile::get_collider()
-{
-	return _collider;
-}
 
 
 

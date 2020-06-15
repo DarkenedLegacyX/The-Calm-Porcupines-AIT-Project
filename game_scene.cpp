@@ -44,6 +44,7 @@ Game_Scene::Game_Scene()
 				Vector_2D((float)x * (float)tile_scale, (float)y * (float)tile_scale),
 				tile_scale, map[y][x]);
 			_game_objects[tile->id()] = tile;
+			
 		}
 	}
 	/*
@@ -83,10 +84,10 @@ void Game_Scene::update(SDL_Window* window)
 	float movey = player->translation().y();
 	movex = player->translation().x();
 	movey = player->translation().y();
-	//std::cout << movex;
+
 	SDL_GetWindowSize(window, &w, &h);
-//	if(player->translation().x() >= 350 && player->translation().x() >= 350)
-//		_camera_translation = Vector_2D(-w / 2.f + player->width() / 2.f, -h / 2.f + player->height() / 2.f) + player->translation();
+	if(player->translation().x() >= 350 && player->translation().x() >= 350)
+		_camera_translation = Vector_2D(-w / 2.f + player->width() / 2.f, -h / 2.f + player->height() / 2.f) + player->translation();
 	if (movex < border)
 		movex = border;
 	else if (movex > lower_border)

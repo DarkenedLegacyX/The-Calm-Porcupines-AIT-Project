@@ -1,4 +1,4 @@
-﻿  combat_scene.cpp
-  Main.cpp
+﻿  game_object.cpp
+  player.cpp
   Generating Code...
-  ShatteredLegend.vcxproj -> C:\Users\Mani\Desktop\ShatteredLegend\x64\Debug\ShatteredLegend.exe
+  ShatteredLegend.vcxproj -> C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\x64\Debug\ShatteredLegend.exe

@@ -13,8 +13,6 @@ public:
     virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input, Scene* scene) override;
    
     int get_type();
-    SDL_Rect get_collider();
 private:
     int _type;
-    SDL_Rect _collider;
 };

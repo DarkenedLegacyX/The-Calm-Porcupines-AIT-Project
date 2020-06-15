@@ -1,6 +1,7 @@
 #pragma once
 
 #include "player.h"
+#include "tile.h"
 //#include "sound.h"
 
 #include <iostream>
