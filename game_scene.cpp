@@ -6,9 +6,7 @@
 Game_Scene::Game_Scene()
 	: Scene("Game")
 {
-	_background_color.r = 255;
-	_background_color.g = 0;
-	_background_color.b = 255;
+
 	_tile_scale = 100;
 	int map[16][16] = { {1, 1, 1, 13, 11, 2, 1, 1, 1, 1, 1, 13, 11, 2, 1, 1},
 		{1, 1, 13, 10, 0, 3, 11, 11, 11, 11, 2, 9, 0, 4, 1, 1 },
