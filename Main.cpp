@@ -33,6 +33,7 @@ int main(void)
 
 	bool is_played = false;
 	bool in_combat = false;
+	bool end_game = false;
 	clock_t start;
 	double duration;
 	int seed = 1337;
@@ -55,7 +56,16 @@ int main(void)
 
 			if (is_played && scenes.top()->is_won())
 			{
+				std::cout << "Win!" << std::endl;
+				end_game = true;
 				scenes.push(new Win_Scene);
+			}
+			if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED) && end_game == true)
+			{
+				std::cout << "Returning to menu" << std::endl;
+				end_game = false;
+				is_played = false;
+				scenes.push(new Menu_Scene());
 			}
 			if (input->is_button_state(Input::Button::PAUSE, Input::Button_State::PRESSED) && is_played == true)
 			{
@@ -94,14 +104,11 @@ int main(void)
 						}
 			}
 
-			if (input->is_button_state(Input::Button::UP, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
-				std::cout << "Test" << std::endl;
+			if (input->is_button_state(Input::Button::UP, Input::Button_State::PRESSED) && is_played == true && in_combat == false && end_game == false) {
 				start = clock();
-
 			}
-			if (input->is_button_state(Input::Button::UP, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+			if (input->is_button_state(Input::Button::UP, Input::Button_State::RELEASED) && is_played == true && in_combat == false && end_game == false) {
 				duration = (clock() - start) / (double)CLOCKS_PER_SEC;
-				std::cout << "end" << std::endl;
 				std::cout << "Button Held duration: " << duration << '\n';
 
 
@@ -132,14 +139,11 @@ int main(void)
 				}
 			}
 
-			if (input->is_button_state(Input::Button::DOWN, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
-				std::cout << "Test" << std::endl;
+			if (input->is_button_state(Input::Button::DOWN, Input::Button_State::PRESSED) && is_played == true && in_combat == false && end_game == false) {
 				start = clock();
-
 			}
-			if (input->is_button_state(Input::Button::DOWN, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+			if (input->is_button_state(Input::Button::DOWN, Input::Button_State::RELEASED) && is_played == true && in_combat == false && end_game == false) {
 				duration = (clock() - start) / (double)CLOCKS_PER_SEC;
-				std::cout << "end" << std::endl;
 				std::cout << "Button Held duration: " << duration << '\n';
 
 
@@ -170,14 +174,11 @@ int main(void)
 				}
 			}
 
-			if (input->is_button_state(Input::Button::LEFT, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
-				std::cout << "Test" << std::endl;
+			if (input->is_button_state(Input::Button::LEFT, Input::Button_State::PRESSED) && is_played == true && in_combat == false && end_game == false) {
 				start = clock();
-
 			}
-			if (input->is_button_state(Input::Button::LEFT, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+			if (input->is_button_state(Input::Button::LEFT, Input::Button_State::RELEASED) && is_played == true && in_combat == false && end_game == false) {
 				duration = (clock() - start) / (double)CLOCKS_PER_SEC;
-				std::cout << "end" << std::endl;
 				std::cout << "Button Held duration: " << duration << '\n';
 
 
@@ -208,14 +209,11 @@ int main(void)
 				}
 			}
 
-			if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
-				std::cout << "Test" << std::endl;
+			if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::PRESSED) && is_played == true && in_combat == false && end_game == false) {
 				start = clock();
-
 			}
-			if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+			if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::RELEASED) && is_played == true && in_combat == false && end_game == false) {
 				duration = (clock() - start) / (double)CLOCKS_PER_SEC;
-				std::cout << "end" << std::endl;
 				std::cout << "Button Held duration: " << duration << '\n';
 
 
