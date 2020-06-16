@@ -44,6 +44,7 @@ Game_Scene::Game_Scene()
 	}
 	add_game_object(new Player("Player"));
 
+
 }
 
 Game_Scene::~Game_Scene()
@@ -52,6 +53,7 @@ Game_Scene::~Game_Scene()
 
 void Game_Scene::update(SDL_Window* window)
 {
+
 	Game_Object* player = get_game_object("Player");
 
 	const int border = 350;
