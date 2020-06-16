@@ -6,6 +6,7 @@
 
 #include <SDL.h>
 #include "vector_2D.h"
+#include "text.h"
 
 class Game_Object;
 
