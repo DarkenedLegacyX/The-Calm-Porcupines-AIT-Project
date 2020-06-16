@@ -12,6 +12,7 @@
 #include "menu_scene.h"
 #include "win_scene.h"
 #include "pause_scene.h"
+#include "lose_scene.h"
 #include <ctime>
 #include <random>
 

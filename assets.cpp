@@ -55,7 +55,15 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
-	// Createanimated dragon
+	// Create player dead texture.
+	{
+		const int frame_count = 6;
+		const Uint32 frame_duration_milliseconds = 100;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.", "Assets/ShatteredLegendResources/player.dead.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
+
+	// Create animated dragon
 	{
 		const int frame_count = 3;
 		const Uint32 frame_duration_milliseconds = 100;
@@ -67,6 +75,12 @@ Assets::Assets(SDL_Renderer* renderer)
 		Texture* texture = new Texture("Texture.Menu", "Assets/menu.png", renderer);
 		_assets[texture->id()] = texture;
 	}
+
+	// Create Lose texture
+	{
+		Texture* texture = new Texture("Texture.Lose", "Assets/gameover.png", renderer);
+		_assets[texture->id()] = texture;
+	} 
 	// Tree textures
 	for (int i = 1; i <= 4; ++i)
 	{

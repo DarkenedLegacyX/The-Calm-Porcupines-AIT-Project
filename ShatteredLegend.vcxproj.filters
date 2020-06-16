@@ -79,6 +79,15 @@
     <ClCompile Include="dragon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lose_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player_dead.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lose_background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animated_texture.h">
@@ -157,6 +166,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dragon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lose_scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="player_dead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lose_background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
