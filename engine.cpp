@@ -135,13 +135,6 @@ void Engine::render(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scen
 		exit(1);
 	}
 
-	/*
-	std::vector<Game_Object*> game_objects = scene->get_game_objects();
-	for(Game_Object* game_object : game_objects)
-	{
-		game_object->render(milliseconds_to_simulate, assets, _renderer);
-	}
-	*/
 	std::vector<Game_Object*> sorted_game_objects = scene->get_game_objects();
 	const struct
 	{
