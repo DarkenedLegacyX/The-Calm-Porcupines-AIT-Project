@@ -42,7 +42,6 @@ Game_Scene::Game_Scene()
 			
 		}
 	}
-
 	add_game_object(new Player("Player"));
 
 }

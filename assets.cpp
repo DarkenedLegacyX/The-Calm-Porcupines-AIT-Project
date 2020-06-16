@@ -55,9 +55,9 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
-	// Create collider texture
+	// Create menu texture
 	{
-		Texture* texture = new Texture("Texture.Collider", "Assets/collider.png", renderer);
+		Texture* texture = new Texture("Texture.Menu", "Assets/menu.png", renderer);
 		_assets[texture->id()] = texture;
 	}
 

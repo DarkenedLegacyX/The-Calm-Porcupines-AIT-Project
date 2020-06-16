@@ -64,6 +64,7 @@
     <ClCompile Include="enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="menu_background.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animated_texture.h">
@@ -129,6 +130,7 @@
     <ClInclude Include="enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="menu_background.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
