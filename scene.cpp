@@ -60,3 +60,13 @@ SDL_Color Scene::background_color()
 {
 	return _background_color;
 }
+
+bool Scene::is_won()
+{
+	return _game_win;
+}
+
+void Scene::win()
+{
+	_game_win = true;
+}

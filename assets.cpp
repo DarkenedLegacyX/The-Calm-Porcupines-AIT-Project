@@ -55,6 +55,13 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
+	// Createanimated dragon
+	{
+		const int frame_count = 3;
+		const Uint32 frame_duration_milliseconds = 100;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Dragon", "Assets/dragon.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
 	// Create menu texture
 	{
 		Texture* texture = new Texture("Texture.Menu", "Assets/menu.png", renderer);
@@ -67,9 +74,14 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[texture->id()] = texture;
 	}
 
-	// Create menu texture
+	// Create combat texture
 	{
 		Texture* texture = new Texture("Texture.Combat", "Assets/beach.png", renderer);
+		_assets[texture->id()] = texture;
+	}
+	//Diamond texture
+	{
+		Texture* texture = new Texture("Texture.Diamond", "Assets/Crystal.png", renderer);
 		_assets[texture->id()] = texture;
 	}
 

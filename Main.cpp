@@ -10,6 +10,7 @@
 #include "input.h"
 #include "configuration.h"
 #include "menu_scene.h"
+#include "win_scene.h"
 #include "pause_scene.h"
 #include <ctime>
 #include <random>
@@ -19,7 +20,7 @@
 int main(void)
 {
 	Configuration* config = new Configuration();
-	Engine* engine = new Engine("Game", config);
+	Engine* engine = new Engine("ShatteredLegend", config);
 	Assets* assets = new Assets(engine->renderer());
 	Input* input = new Input();
 
@@ -52,6 +53,10 @@ int main(void)
 				scenes.push(new Game_Scene);
 			}
 
+			if (is_played && scenes.top()->is_won())
+			{
+				scenes.push(new Win_Scene);
+			}
 			if (input->is_button_state(Input::Button::PAUSE, Input::Button_State::PRESSED) && is_played == true)
 			{
 				in_combat = true;

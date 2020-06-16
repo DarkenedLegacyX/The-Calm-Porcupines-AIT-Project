@@ -147,13 +147,14 @@
     <ClCompile Include="circle_2D.cpp" />
     <ClCompile Include="combat_background.cpp" />
     <ClCompile Include="combat_scene.cpp" />
+    <ClCompile Include="diamond.cpp" />
+    <ClCompile Include="dragon.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="game_object.cpp" />
     <ClCompile Include="game_scene.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="map.cpp" />
     <ClCompile Include="menu_background.cpp" />
     <ClCompile Include="menu_scene.cpp" />
     <ClCompile Include="pause_scene.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="tile.cpp" />
     <ClCompile Include="tree.cpp" />
     <ClCompile Include="vector_2D.cpp" />
+    <ClCompile Include="win_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animated_texture.h" />
@@ -174,12 +176,13 @@
     <ClInclude Include="combat_background.h" />
     <ClInclude Include="combat_scene.h" />
     <ClInclude Include="configuration.h" />
+    <ClInclude Include="diamond.h" />
+    <ClInclude Include="dragon.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="game_object.h" />
     <ClInclude Include="game_scene.h" />
     <ClInclude Include="input.h" />
-    <ClInclude Include="map.h" />
     <ClInclude Include="menu_background.h" />
     <ClInclude Include="menu_scene.h" />
     <ClInclude Include="pause_scene.h" />
@@ -191,6 +194,7 @@
     <ClInclude Include="tile.h" />
     <ClInclude Include="tree.h" />
     <ClInclude Include="vector_2D.h" />
+    <ClInclude Include="win_scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -76,6 +76,17 @@ void Player::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, S
 				_translation += other_collider_to_collider;
 			}
 		}
+		else if (game_object->id().find("Diamond") != std::string::npos)
+		{
+			Circle_2D collider = Circle_2D(_collider.radius(), _collider.translation() + _translation);
+			Circle_2D other_collider = Circle_2D(game_object->collider().radius(), game_object->collider().translation() + game_object->translation());
+			float intersection_depth = collider.intersection_depth(other_collider);
+
+			if (intersection_depth > 0.0f)
+			{
+				scene->win();
+			}
+		}
 	}
 }
 

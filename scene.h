@@ -30,9 +30,13 @@ public:
 
 	SDL_Color background_color();
 
+	bool is_won();
+	void win();
+
 protected:
 	std::map<std::string, Game_Object*> _game_objects;
 	std::string                         _id;
 	Vector_2D                           _camera_translation;
 	SDL_Color                           _background_color;
+	bool								_game_win;
 };

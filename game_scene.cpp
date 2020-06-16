@@ -2,6 +2,7 @@
 #include "player.h"
 #include "tile.h"
 #include "tree.h"
+#include "diamond.h"
 #include <iostream>
 #include <time.h>  
 
@@ -51,6 +52,7 @@ Game_Scene::Game_Scene()
 		}
 	}
 	add_game_object(new Player("Player"));
+	add_game_object(new Diamond("Diamond", "Texture.Diamond", Vector_2D(1360,1350), 75));
 
 	int r;
 	for (int i = 0; i < number_trees; ++i)
@@ -76,8 +78,6 @@ void Game_Scene::update(SDL_Window* window)
 	float move_player_y = player->translation().y();
 	move_player_x = player->translation().x();
 	move_player_y = player->translation().y();
-
-	// std::cout << move_player_x << "           " << move_player_y << std::endl;
 
 	SDL_GetWindowSize(window, &w, &h);
 	if(player->translation().x() >= 350 && player->translation().x() >= 350)
