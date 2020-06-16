@@ -11,6 +11,9 @@
 #include "configuration.h"
 #include "menu_scene.h"
 #include "pause_scene.h"
+#include <ctime>
+#include <random>
+
 
 
 int main(void)
@@ -28,6 +31,12 @@ int main(void)
 	const Uint32 frame_time_ms = milliseconds_per_seconds / frames_per_second;
 
 	bool is_played = false;
+	bool in_combat = false;
+	std::clock_t start;
+	double duration;
+	int seed = 1337;
+	std::minstd_rand0 generator(seed);
+
 
 	Uint32 frame_start_time_ms = 0;
 	Uint32 frame_end_time_ms = frame_time_ms;
@@ -52,29 +61,55 @@ int main(void)
 					Pause_Scene* pause_scene = (Pause_Scene*)scenes.top();
 					scenes.pop();
 					delete pause_scene;
+					in_combat = true;
 				}
 				else
 				{
 					scenes.push(new Pause_Scene);
-
+					
 				}
-			}					
+			}	
+
 			if (input->is_button_state(Input::Button::COMBAT, Input::Button_State::PRESSED) && is_played == true)
 					{
+						in_combat = true;
 						const bool is_paused = scenes.top()->id() == "Combat";
 						std::cout << "Battle" << std::endl;
-
 						if (is_paused)
 						{
 							Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
 							scenes.pop();
 							delete combat_scene;
+							in_combat = false;
 						}
 						else
 						{
 							scenes.push(new Combat_Scene);
 						}
 			}
+
+			if (input->is_button_state(Input::Button::UP, Input::Button_State::PRESSED) || input->is_button_state(Input::Button::LEFT, Input::Button_State::PRESSED) || input->is_button_state(Input::Button::RIGHT, Input::Button_State::PRESSED) || input->is_button_state(Input::Button::DOWN, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
+				std::cout << "Test" << std::endl;
+				start = std::clock();
+
+			}
+			if (input->is_button_state(Input::Button::UP, Input::Button_State::RELEASED) || input->is_button_state(Input::Button::LEFT, Input::Button_State::RELEASED) || input->is_button_state(Input::Button::RIGHT, Input::Button_State::RELEASED) || input->is_button_state(Input::Button::DOWN, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+				duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+				std::cout << "end" << std::endl;
+				std::cout << "printf: " << duration << '\n';
+
+
+				if (duration > 0.75) {
+					float random_number = (float)generator() / generator.max();
+					if (random_number > 0.75) {
+					std::cout << "battle!!!!!" << std::endl;
+					}
+				}
+			}
+
+
+
+
 			scenes.top()->update(engine->window());
 			engine->simulate(previous_frame_duration, assets, scenes.top(), input, config);
 
