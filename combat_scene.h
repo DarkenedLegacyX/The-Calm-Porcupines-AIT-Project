@@ -21,5 +21,4 @@ public:
 
 	SDL_Renderer* renderer;
 
-	void draw();
 };

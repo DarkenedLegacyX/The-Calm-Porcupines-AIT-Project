@@ -61,6 +61,12 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[texture->id()] = texture;
 	}
 
+	// Create menu texture
+	{
+		Texture* texture = new Texture("Texture.Combat", "Assets/beach.png", renderer);
+		_assets[texture->id()] = texture;
+	}
+
 	// Create tile texture
 	for(int i = 0; i <14; ++i)
 	{
