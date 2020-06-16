@@ -31,33 +31,7 @@ void Game_Object::simulate_physics(Uint32 milliseconds_to_simulate, Assets*, Sce
 
 	_translation += velocity;
 
-	for (Game_Object* game_object : scene->get_game_objects())
-	{
-		if (game_object->id() == _id)
-		{
-			continue;
-		}
-		if (game_object->id().find("Tile") != std::string::npos)
-		{
-			Tile* tile = (Tile*)game_object;
-			if (tile->get_type() == 0)
-			{
-				continue;
-			}
-			Circle_2D collider = Circle_2D(_collider.radius(), _collider.translation() + _translation);
-			Circle_2D other_collider = Circle_2D(game_object->_collider.radius(), game_object->_collider.translation() + game_object->_translation);
-			float intersection_depth = collider.intersection_depth(other_collider);
-			
-			if (intersection_depth > 0.0f)
-			{
-				Vector_2D other_collider_to_collider = collider.translation() - other_collider.translation();
-				other_collider_to_collider.normalize();
-				other_collider_to_collider.scale(intersection_depth);
-				_translation += other_collider_to_collider;
 
-			}
-		}
-	}
 }
 
 void Game_Object::render(Uint32, Assets* assets, SDL_Renderer* renderer, Configuration* config, Scene* scene)

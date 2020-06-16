@@ -60,6 +60,12 @@ Assets::Assets(SDL_Renderer* renderer)
 		Texture* texture = new Texture("Texture.Menu", "Assets/menu.png", renderer);
 		_assets[texture->id()] = texture;
 	}
+	// Tree textures
+	for (int i = 1; i <= 4; ++i)
+	{
+		Texture* texture = new Texture("Texture.Tree" + std::to_string(i), "Assets/tree" + std::to_string(i) + ".png", renderer);
+		_assets[texture->id()] = texture;
+	}
 
 	// Create tile texture
 	for(int i = 0; i <14; ++i)

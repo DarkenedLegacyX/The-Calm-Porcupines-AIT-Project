@@ -1,5 +1,5 @@
 #include "menu_background.h"
-#include "text.h"
+#include "input.h"
 
 Menu_background::Menu_background(std::string id) : Game_Object(id, "Texture.Menu")
 {
@@ -13,6 +13,8 @@ Menu_background::~Menu_background()
 {
 }
 
-void Menu_background::simulate_AI(Uint32, Assets* , Input*, Scene* ) 
+void Menu_background::simulate_AI(Uint32, Assets*, Input*, Scene*) 
 {
 }
+
+

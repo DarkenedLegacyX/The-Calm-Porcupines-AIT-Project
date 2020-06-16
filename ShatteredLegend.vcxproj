@@ -162,6 +162,7 @@
     <ClCompile Include="text.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="tile.cpp" />
+    <ClCompile Include="tree.cpp" />
     <ClCompile Include="vector_2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +187,7 @@
     <ClInclude Include="text.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="tile.h" />
+    <ClInclude Include="tree.h" />
     <ClInclude Include="vector_2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

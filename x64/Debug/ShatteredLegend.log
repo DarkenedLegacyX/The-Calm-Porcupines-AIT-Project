@@ -1,14 +1,3 @@
-﻿  Main.cpp
-  combat_scene.cpp
-  engine.cpp
-  game_object.cpp
-  game_scene.cpp
-  map.cpp
-  menu_background.cpp
-  menu_scene.cpp
-  pause_scene.cpp
-  player.cpp
-  scene.cpp
-  tile.cpp
-  Generating Code...
+﻿  game_scene.cpp
+C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\game_scene.cpp(11,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   ShatteredLegend.vcxproj -> C:\Users\zuzan\Documents\GitHub\The-Calm-Porcupines-AIT-Project\The-Calm-Porcupines-AIT-Project\x64\Debug\ShatteredLegend.exe

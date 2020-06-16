@@ -32,6 +32,53 @@ void Player::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Rendere
 	Game_Object::render(milliseconds_to_simulate, assets, renderer, config, scene);
 }
 
+void Player::simulate_physics(Uint32 milliseconds_to_simulate, Assets* assets, Scene* scene)
+{
+	Game_Object::simulate_physics(milliseconds_to_simulate, assets, scene);
+
+	for (Game_Object* game_object : scene->get_game_objects())
+	{
+		if (game_object->id() == _id)
+		{
+			continue;
+		}
+		if (game_object->id().find("Tile") != std::string::npos)
+		{
+			Tile* tile = (Tile*)game_object;
+			if (tile->get_type() == 0)
+			{
+				continue;
+			}
+			Circle_2D collider = Circle_2D(_collider.radius(), _collider.translation() + _translation);
+			Circle_2D other_collider = Circle_2D(game_object->collider().radius(), game_object->collider().translation() + game_object->translation());
+			float intersection_depth = collider.intersection_depth(other_collider);
+
+			if (intersection_depth > 0.0f)
+			{
+				Vector_2D other_collider_to_collider = collider.translation() - other_collider.translation();
+				other_collider_to_collider.normalize();
+				other_collider_to_collider.scale(intersection_depth);
+				_translation += other_collider_to_collider;
+
+			}
+		}
+		else if (game_object->id().find("Tree") != std::string::npos)
+		{
+			Circle_2D collider = Circle_2D(_collider.radius(), _collider.translation() + _translation);
+			Circle_2D other_collider = Circle_2D(game_object->collider().radius(), game_object->collider().translation() + game_object->translation());
+			float intersection_depth = collider.intersection_depth(other_collider);
+
+			if (intersection_depth > 0.0f)
+			{
+				Vector_2D other_collider_to_collider = collider.translation() - other_collider.translation();
+				other_collider_to_collider.normalize();
+				other_collider_to_collider.scale(intersection_depth);
+				_translation += other_collider_to_collider;
+			}
+		}
+	}
+}
+
 void Player::simulate_AI(Uint32, Assets* assets, Input* input, Scene*)
 {
 	switch (_state.top())
