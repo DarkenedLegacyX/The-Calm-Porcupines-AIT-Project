@@ -54,6 +54,7 @@ int main(void)
 
 			if (input->is_button_state(Input::Button::PAUSE, Input::Button_State::PRESSED) && is_played == true)
 			{
+				in_combat = true;
 				const bool is_paused = scenes.top()->id() == "Pause";
 				std::cout << "pause" << std::endl;
 				if (is_paused)
@@ -61,7 +62,7 @@ int main(void)
 					Pause_Scene* pause_scene = (Pause_Scene*)scenes.top();
 					scenes.pop();
 					delete pause_scene;
-					in_combat = true;
+					in_combat = false;
 				}
 				else
 				{

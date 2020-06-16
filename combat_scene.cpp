@@ -1,10 +1,12 @@
 #include "combat_scene.h"
+#include "combat_background.h"
 #include <SDL_image.h>
 
 Combat_Scene::Combat_Scene()
 	: Scene("Combat")
 {
-	backgroundTexture = IMG_LoadTexture(renderer, "Assets/beach.png");
+
+	add_game_object(new Combat_Background("Combat"));
 }
 
 
@@ -16,7 +18,4 @@ void Combat_Scene::update(SDL_Window*)
 {
 }
 
-void Combat_Scene::draw()
-{	//draw background
-	SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
-}
+
