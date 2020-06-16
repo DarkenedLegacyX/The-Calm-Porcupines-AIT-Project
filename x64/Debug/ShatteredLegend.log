@@ -1,3 +1,2 @@
 ﻿  Main.cpp
-C:\Users\Mani\Desktop\ShatteredLegend\Main.cpp(64,16): warning C4553:  '==': result of expression not used; did you intend '='?
   ShatteredLegend.vcxproj -> C:\Users\Mani\Desktop\ShatteredLegend\x64\Debug\ShatteredLegend.exe

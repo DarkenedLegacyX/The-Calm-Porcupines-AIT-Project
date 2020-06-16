@@ -88,25 +88,145 @@ int main(void)
 						}
 			}
 
-			if (input->is_button_state(Input::Button::UP, Input::Button_State::PRESSED) || input->is_button_state(Input::Button::LEFT, Input::Button_State::PRESSED) || input->is_button_state(Input::Button::RIGHT, Input::Button_State::PRESSED) || input->is_button_state(Input::Button::DOWN, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
+			if (input->is_button_state(Input::Button::UP, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
 				std::cout << "Test" << std::endl;
 				start = std::clock();
 
 			}
-			if (input->is_button_state(Input::Button::UP, Input::Button_State::RELEASED) || input->is_button_state(Input::Button::LEFT, Input::Button_State::RELEASED) || input->is_button_state(Input::Button::RIGHT, Input::Button_State::RELEASED) || input->is_button_state(Input::Button::DOWN, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+			if (input->is_button_state(Input::Button::UP, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
 				duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
 				std::cout << "end" << std::endl;
-				std::cout << "printf: " << duration << '\n';
+				std::cout << "Button Held duration: " << duration << '\n';
 
 
 				if (duration > 0.75) {
 					float random_number = (float)generator() / generator.max();
 					if (random_number > 0.75) {
 					std::cout << "battle!!!!!" << std::endl;
+					in_combat = true;
+					const bool is_paused = scenes.top()->id() == "Combat";
+					if (is_paused)
+					{
+						Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
+						scenes.pop();
+						delete combat_scene;
+						in_combat = false;
 					}
+					else
+					{
+						scenes.push(new Combat_Scene);
+					}
+					}
+				}
+				else {
+					std::cout << "Button not held on long enough to proc RNG" << std::endl;
 				}
 			}
 
+			if (input->is_button_state(Input::Button::DOWN, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
+				std::cout << "Test" << std::endl;
+				start = std::clock();
+
+			}
+			if (input->is_button_state(Input::Button::DOWN, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+				duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+				std::cout << "end" << std::endl;
+				std::cout << "Button Held duration: " << duration << '\n';
+
+
+				if (duration > 0.75) {
+					float random_number = (float)generator() / generator.max();
+					if (random_number > 0.75) {
+						std::cout << "battle!!!!!" << std::endl;
+						in_combat = true;
+						const bool is_paused = scenes.top()->id() == "Combat";
+						if (is_paused)
+						{
+							Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
+							scenes.pop();
+							delete combat_scene;
+							in_combat = false;
+						}
+						else
+						{
+							scenes.push(new Combat_Scene);
+						}
+					}
+				}
+				else {
+					std::cout << "Button not held on long enough to proc RNG" << std::endl;
+				}
+			}
+
+			if (input->is_button_state(Input::Button::LEFT, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
+				std::cout << "Test" << std::endl;
+				start = std::clock();
+
+			}
+			if (input->is_button_state(Input::Button::LEFT, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+				duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+				std::cout << "end" << std::endl;
+				std::cout << "Button Held duration: " << duration << '\n';
+
+
+				if (duration > 0.75) {
+					float random_number = (float)generator() / generator.max();
+					if (random_number > 0.75) {
+						std::cout << "battle!!!!!" << std::endl;
+						in_combat = true;
+						const bool is_paused = scenes.top()->id() == "Combat";
+						if (is_paused)
+						{
+							Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
+							scenes.pop();
+							delete combat_scene;
+							in_combat = false;
+						}
+						else
+						{
+							scenes.push(new Combat_Scene);
+						}
+					}
+				}
+				else {
+					std::cout << "Button not held on long enough to proc RNG" << std::endl;
+				}
+			}
+
+			if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::PRESSED) && is_played == true && in_combat == false) {
+				std::cout << "Test" << std::endl;
+				start = std::clock();
+
+			}
+			if (input->is_button_state(Input::Button::RIGHT, Input::Button_State::RELEASED) && is_played == true && in_combat == false) {
+				duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+				std::cout << "end" << std::endl;
+				std::cout << "Button Held duration: " << duration << '\n';
+
+
+				if (duration > 0.75) {
+					float random_number = (float)generator() / generator.max();
+					if (random_number > 0.75) {
+						std::cout << "battle!!!!!" << std::endl;
+						in_combat = true;
+						const bool is_paused = scenes.top()->id() == "Combat";
+						if (is_paused)
+						{
+							Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
+							scenes.pop();
+							delete combat_scene;
+							in_combat = false;
+						}
+						else
+						{
+							scenes.push(new Combat_Scene);
+						}
+					}
+				}
+				else {
+					std::cout << "Button not held on long enough to proc RNG" << std::endl;
+				}
+			}
 
 
 
