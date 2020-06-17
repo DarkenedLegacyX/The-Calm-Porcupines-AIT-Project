@@ -26,7 +26,6 @@ int main(void)
 	Assets* assets = new Assets(engine->renderer());
 	Input* input = new Input();
 
-
 	std::stack<Scene*> scenes;
 	scenes.push(new Menu_Scene());
 
@@ -42,6 +41,10 @@ int main(void)
 	int seed = 1337;
 	std::minstd_rand0 generator(seed);
 	int turn = 1;
+	int enemy_hp;
+	int player_hp = 100;
+	int r;
+
 
 
 	Uint32 frame_start_time_ms = 0;
@@ -56,6 +59,7 @@ int main(void)
 				std::cout << "Play" << std::endl;
 				is_played = true;
 				scenes.push(new Game_Scene);
+				std::cout << "You have " << player_hp << " Health!" << std::endl;
 			}
 
 			if (is_played && scenes.top()->is_won())
@@ -90,16 +94,26 @@ int main(void)
 				}
 			}
 
-			//if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED) && turn == 1 && in_combat == true) {
-				//std::cout << Player_Fight->getHP() << std::endl;
-				
-			//}
+			if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED) && turn == 1 && in_combat == true) {
+				r = rand() % 25 + 1;
+				std::cout << "Enemy has taken " << r << " damage!" << std::endl;
+				enemy_hp = enemy_hp - r;	
+				turn = 2;
+			}
+			
+			if (turn == 2 && in_combat == true) {
+				r = rand() % 25 + 1;
+				std::cout << "You have taken " << r << " damage!" << std::endl;
+				player_hp = player_hp - r;
+				turn = 1;
+			}
 
 			if (input->is_button_state(Input::Button::COMBAT, Input::Button_State::PRESSED) && is_played == true)
 					{
+						std::cout << "BATTLE!" << std::endl;
 						in_combat = true;
+						enemy_hp = 50;
 						const bool is_paused = scenes.top()->id() == "Combat";
-						std::cout << "Battle" << std::endl;
 						if (is_paused)
 						{
 							Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
@@ -126,6 +140,7 @@ int main(void)
 					if (random_number > 0.75) {
 					std::cout << "BATTLE!!!!!!!!" << std::endl;
 					in_combat = true;
+					enemy_hp = 50;
 					const bool is_paused = scenes.top()->id() == "Combat";
 					if (is_paused)
 					{
@@ -161,6 +176,7 @@ int main(void)
 					if (random_number > 0.75) {
 						std::cout << "BATTLE!!!!!!!!" << std::endl;
 						in_combat = true;
+						enemy_hp = 50;
 						const bool is_paused = scenes.top()->id() == "Combat";
 						if (is_paused)
 						{
@@ -196,6 +212,7 @@ int main(void)
 					if (random_number > 0.75) {
 						std::cout << "BATTLE!!!!!!!!" << std::endl;
 						in_combat = true;
+						enemy_hp = 50;
 						const bool is_paused = scenes.top()->id() == "Combat";
 						if (is_paused)
 						{
@@ -231,6 +248,7 @@ int main(void)
 					if (random_number > 0.75) {
 						std::cout << "BATTLE!!!!!!!!" << std::endl;
 						in_combat = true;
+						enemy_hp = 50;
 						const bool is_paused = scenes.top()->id() == "Combat";
 						if (is_paused)
 						{

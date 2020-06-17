@@ -8,18 +8,10 @@ Player_Fight::Player_Fight(std::string id)
 	_velocity = Vector_2D(0, 0);
 	_width = 150;
 	_height = 150;
-
-	hp = 100;
-	hpMax = 10;
-	str = 4;
-	def = 2;
+	_state.push(State::Idle);
 }
 
 Player_Fight::~Player_Fight()
-{
-}
-
-void Player_Fight::simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input, Scene* scene)
 {
 }
 
@@ -32,41 +24,62 @@ void Player_Fight::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_R
 
 }
 
-void Player_Fight::setupStats(int _hp, int _str, int _def)
+void Player_Fight::push_state(State state, Assets* assets)
 {
-	hp = _hp;
-	hpMax = _hp;
-	str = _str;
-	def = _def;
+	handle_exit_state(_state.top(), assets);
+
+	_state.push(state);
+	handle_enter_state(_state.top(), assets);
 }
 
-int Player_Fight::getHP()
+void Player_Fight::pop_state(Assets* assets)
 {
-	return hp;
+	handle_exit_state(_state.top(), assets);
+
+	_state.pop();
+	handle_enter_state(_state.top(), assets);
 }
 
-int Player_Fight::getHPMax()
+
+
+void Player_Fight::simulate_AI(Uint32, Assets* assets, Input* input, Scene*)
 {
-	return hpMax;
+	switch (_state.top())
+	{
+	case State::Idle:
+		if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED))
+		{
+			push_state(State::Attack, assets);
+		}
+	case State::Attack:
+		if (input->is_button_state(Input::Button::SPACE, Input::Button_State::RELEASED))
+		{
+			pop_state(assets);
+		}
+	}
+
 }
 
-
-int Player_Fight::getDamage()
+void Player_Fight::handle_enter_state(State state, Assets* assets)
 {
-	return str;
+	switch (state)
+	{
+	case State::Idle:
+		_texture_id = "Texture.Player.Fight";
+		break;
+	case State::Attack:
+		_texture_id = "Texture.Player.Attack";
+		break;
+	}
 }
 
-void Player_Fight::takeDamage(int dmg)
+void Player_Fight::handle_exit_state(State state, Assets* assets)
 {
-	int dmgAfterDef = dmg - def;
-	if (dmgAfterDef < 1)
-		dmgAfterDef = 1;
-
-	hp = hp - dmgAfterDef;
-}
-
-void Player_Fight::displayStats()
-{
-	std::cout << "Name: ZuzaNesh" << std::endl;
-	std::cout << "hp: " << hp << "/" << hpMax << " str: " << str << " def: " << def << std::endl;
+	switch (state)
+	{
+	case State::Idle:
+		break;
+	case State::Attack:
+		break;
+	}
 }

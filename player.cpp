@@ -9,7 +9,7 @@
 #include <SDL_mixer.h>
 
 Player::Player(std::string id)
-	: Game_Object(id, "Texture.Player.Walking")
+	: Game_Object(id, "Texture.Player.Idle")
 {
 	_speed = 0.1f;
 

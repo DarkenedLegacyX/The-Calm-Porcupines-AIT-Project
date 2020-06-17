@@ -1,5 +1,6 @@
 #pragma once
 #include "game_object.h"
+#include <stack>
 
 class Player_Fight : public Game_Object
 {
@@ -11,17 +12,19 @@ public:
 	virtual void simulate_AI(Uint32 milliseconds_to_simulate, Assets* assets, Input* input, Scene* scene) override;
 	virtual void render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_Renderer* renderer, Configuration* config, Scene* scene) override;
 
-protected:
-	int hp, hpMax, str, def;
+	enum class State
+	{
+		Idle,
+		Attack
+	};
 
-	void setupStats(int _hp, int _str, int _def);
+	void push_state(State state, Assets* assets);
+	void pop_state(Assets* assets);
 
-	int getHP();
-	int getHPMax();
+private:
+	void handle_enter_state(State state, Assets* assets);
+	void handle_exit_state(State state, Assets* assets);
 
+	std::stack<State> _state;
 
-	int getDamage();
-	void takeDamage(int dmg);
-
-	void displayStats();
 };

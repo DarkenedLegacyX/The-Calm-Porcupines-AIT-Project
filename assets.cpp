@@ -63,6 +63,14 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
+	// Create player Attack texture.
+	{
+		const int frame_count = 6;
+		const Uint32 frame_duration_milliseconds = 100;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Attack", "Assets/ShatteredLegendResources/player.attack.right.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
+
 	// Create player dead texture.
 	{
 		const int frame_count = 6;

@@ -7,8 +7,6 @@
 
 class Player : public Game_Object
 {
-protected:
-	int hp, hpMax, str, def;
 public:
 	Player(std::string id);
 	~Player();
