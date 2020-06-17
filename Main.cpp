@@ -13,6 +13,7 @@
 #include "win_scene.h"
 #include "pause_scene.h"
 #include "lose_scene.h"
+#include "player_fight.h"
 #include <ctime>
 #include <random>
 
@@ -24,6 +25,7 @@ int main(void)
 	Engine* engine = new Engine("ShatteredLegend", config);
 	Assets* assets = new Assets(engine->renderer());
 	Input* input = new Input();
+
 
 	std::stack<Scene*> scenes;
 	scenes.push(new Menu_Scene());
@@ -39,6 +41,7 @@ int main(void)
 	double duration;
 	int seed = 1337;
 	std::minstd_rand0 generator(seed);
+	int turn = 1;
 
 
 	Uint32 frame_start_time_ms = 0;
@@ -85,7 +88,12 @@ int main(void)
 					scenes.push(new Pause_Scene);
 					
 				}
-			}	
+			}
+
+			//if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED) && turn == 1 && in_combat == true) {
+				//std::cout << Player_Fight->getHP() << std::endl;
+				
+			//}
 
 			if (input->is_button_state(Input::Button::COMBAT, Input::Button_State::PRESSED) && is_played == true)
 					{

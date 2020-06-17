@@ -88,6 +88,9 @@
     <ClCompile Include="lose_background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="player_fight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animated_texture.h">
@@ -175,6 +178,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lose_background.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="player_fight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

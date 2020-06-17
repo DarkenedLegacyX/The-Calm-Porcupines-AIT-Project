@@ -55,11 +55,27 @@ Assets::Assets(SDL_Renderer* renderer)
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
+	// Create player idle Fight texture.
+	{
+		const int frame_count = 5;
+		const Uint32 frame_duration_milliseconds = 300;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Fight", "Assets/ShatteredLegendResources/player.idle.right.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
+
 	// Create player dead texture.
 	{
 		const int frame_count = 6;
 		const Uint32 frame_duration_milliseconds = 100;
 		Asset* player_animated_texture = new Animated_Texture("Texture.Player.", "Assets/ShatteredLegendResources/player.dead.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
+
+	// Create Enemy texture
+	{
+		const int frame_count = 4;
+		const Uint32 frame_duration_milliseconds = 300;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Enemy.Idle", "Assets/enemy.idle.png", renderer, frame_count, frame_duration_milliseconds);
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
@@ -111,7 +127,7 @@ Assets::Assets(SDL_Renderer* renderer)
 
 	// Create music sound
 	{
-		Sound* sound = new Sound("Sound.Music", "Assets/ShatteredLegendResources/Music8-Bit/Persona 5 The Royal - Take Over [8-bit VRC6] (ft. sen-pi).mp3");
+		Sound* sound = new Sound("Sound.Music", "Assets/ShatteredLegendResources/MusicOriginal/Take Over (Battle Theme) - Persona 5 Royal.mp3");
 		_assets[sound->id()] = sound;
 
 		Mix_PlayChannel(0, sound->data(), -1);

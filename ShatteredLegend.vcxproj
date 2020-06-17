@@ -162,6 +162,7 @@
     <ClCompile Include="pause_scene.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="player_dead.cpp" />
+    <ClCompile Include="player_fight.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="sound.cpp" />
     <ClCompile Include="text.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="pause_scene.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="player_dead.h" />
+    <ClInclude Include="player_fight.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="sound.h" />
     <ClInclude Include="text.h" />

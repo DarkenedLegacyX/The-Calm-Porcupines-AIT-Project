@@ -32,15 +32,6 @@ public:
 	void push_state(State state, Assets* assets);
 	void pop_state(Assets* assets);
 
-	void setupStats(int _hp, int _str, int _def);
-
-	int getHP();
-	int getHPMax();
-
-	int getDamage();
-	void takeDamage(int dmg);
-
-	void displayStats();
 
 private:
 	void handle_enter_state(State state, Assets* assets);
