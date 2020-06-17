@@ -3,8 +3,10 @@
 Dragon::Dragon(std::string id)
 	: Game_Object(id, "Texture.Dragon")
 {
-	_translation = Vector_2D(350, 350);
+	_translation = Vector_2D(300, 100);
 	_velocity = Vector_2D(0, 0);
+	_width = 220;
+	_height = 200;
 }
 Dragon::~Dragon()
 {

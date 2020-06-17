@@ -1,5 +1,6 @@
 #include "win_scene.h"
 #include "dragon.h"
+#include "win_background.h"
 
 Win_Scene::Win_Scene()
 	: Scene("Win")
@@ -9,6 +10,7 @@ Win_Scene::Win_Scene()
 	_background_color.b = 215;
 
 	add_game_object(new Dragon("Dragon"));
+	add_game_object(new Win_Background("Win"));
 }
 
 Win_Scene::~Win_Scene()

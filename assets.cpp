@@ -112,6 +112,11 @@ Assets::Assets(SDL_Renderer* renderer)
 		Texture* texture = new Texture("Texture.Lose", "Assets/gameover.png", renderer);
 		_assets[texture->id()] = texture;
 	} 
+	// Create Win texture
+	{
+		Texture* texture = new Texture("Texture.Win", "Assets/win_screen.png", renderer);
+		_assets[texture->id()] = texture;
+	}
 	// Tree textures
 	for (int i = 1; i <= 4; ++i)
 	{

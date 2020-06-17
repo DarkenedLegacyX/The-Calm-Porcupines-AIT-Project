@@ -170,6 +170,7 @@
     <ClCompile Include="tile.cpp" />
     <ClCompile Include="tree.cpp" />
     <ClCompile Include="vector_2D.cpp" />
+    <ClCompile Include="win_background.cpp" />
     <ClCompile Include="win_scene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +203,7 @@
     <ClInclude Include="tile.h" />
     <ClInclude Include="tree.h" />
     <ClInclude Include="vector_2D.h" />
+    <ClInclude Include="win_background.h" />
     <ClInclude Include="win_scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
