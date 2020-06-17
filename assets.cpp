@@ -65,9 +65,9 @@ Assets::Assets(SDL_Renderer* renderer)
 
 	// Create player Attack texture.
 	{
-		const int frame_count = 6;
+		const int frame_count = 7;
 		const Uint32 frame_duration_milliseconds = 100;
-		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Attack", "Assets/ShatteredLegendResources/player.attack.right.png", renderer, frame_count, frame_duration_milliseconds);
+		Asset* player_animated_texture = new Animated_Texture("Texture.Player.Attack", "Assets/ShatteredLegendResources/player.attack.png", renderer, frame_count, frame_duration_milliseconds);
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 
@@ -84,6 +84,13 @@ Assets::Assets(SDL_Renderer* renderer)
 		const int frame_count = 4;
 		const Uint32 frame_duration_milliseconds = 300;
 		Asset* player_animated_texture = new Animated_Texture("Texture.Enemy.Idle", "Assets/enemy.idle.png", renderer, frame_count, frame_duration_milliseconds);
+		_assets[player_animated_texture->id()] = player_animated_texture;
+	}
+	// Create Enemy  Attack texture
+	{
+		const int frame_count = 11;
+		const Uint32 frame_duration_milliseconds = 100;
+		Asset* player_animated_texture = new Animated_Texture("Texture.Enemy.Attack", "Assets/enemy.attack.png", renderer, frame_count, frame_duration_milliseconds);
 		_assets[player_animated_texture->id()] = player_animated_texture;
 	}
 

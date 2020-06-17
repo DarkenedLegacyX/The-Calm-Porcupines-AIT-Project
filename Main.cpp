@@ -42,7 +42,7 @@ int main(void)
 	std::minstd_rand0 generator(seed);
 	int turn = 1;
 	int enemy_hp;
-	int player_hp = 100;
+	int player_hp;
 	int r;
 
 
@@ -59,6 +59,7 @@ int main(void)
 				std::cout << "Play" << std::endl;
 				is_played = true;
 				scenes.push(new Game_Scene);
+				player_hp = 100;
 				std::cout << "You have " << player_hp << " Health!" << std::endl;
 			}
 
@@ -94,19 +95,6 @@ int main(void)
 				}
 			}
 
-			if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED) && turn == 1 && in_combat == true) {
-				r = rand() % 25 + 1;
-				std::cout << "Enemy has taken " << r << " damage!" << std::endl;
-				enemy_hp = enemy_hp - r;	
-				turn = 2;
-			}
-			
-			if (turn == 2 && in_combat == true) {
-				r = rand() % 25 + 1;
-				std::cout << "You have taken " << r << " damage!" << std::endl;
-				player_hp = player_hp - r;
-				turn = 1;
-			}
 
 			if (input->is_button_state(Input::Button::COMBAT, Input::Button_State::PRESSED) && is_played == true)
 					{
@@ -268,6 +256,40 @@ int main(void)
 				}
 				else {
 					std::cout << "Button not held on long enough to proc RNG" << std::endl;
+				}
+			}
+
+			if (input->is_button_state(Input::Button::SPACE, Input::Button_State::PRESSED) && turn == 1 && in_combat == true) {
+				if (player_hp <= 0 && in_combat == true) {
+					std::cout << "You Lose " << std::endl;
+					in_combat = false;
+					end_game = true;
+					scenes.push(new Lose_Scene);
+				}
+				else {
+					r = rand() % 25 + 1;
+					std::cout << "Enemy has taken " << r << " damage!" << std::endl;
+					enemy_hp = enemy_hp - r;
+					std::cout << "Enemy has " << enemy_hp << " HP!" << std::endl;
+					turn = 2;
+				}
+			}
+
+			if (turn == 2 && in_combat == true) {
+				if (enemy_hp <= 0 && in_combat == true) {
+					std::cout << "You win " << std::endl;
+					Combat_Scene* combat_scene = (Combat_Scene*)scenes.top();
+					scenes.pop();
+					delete combat_scene;
+					in_combat = false;
+					turn = 1;
+				}
+				else {
+					r = rand() % 25 + 1;
+					std::cout << "You have taken " << r << " damage!" << std::endl;
+					player_hp = player_hp - r;
+					std::cout << "You have " << player_hp << " hp!" << std::endl;
+					turn = 1;
 				}
 			}
 

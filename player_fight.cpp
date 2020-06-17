@@ -26,16 +26,12 @@ void Player_Fight::render(Uint32 milliseconds_to_simulate, Assets* assets, SDL_R
 
 void Player_Fight::push_state(State state, Assets* assets)
 {
-	handle_exit_state(_state.top(), assets);
-
 	_state.push(state);
 	handle_enter_state(_state.top(), assets);
 }
 
 void Player_Fight::pop_state(Assets* assets)
 {
-	handle_exit_state(_state.top(), assets);
-
 	_state.pop();
 	handle_enter_state(_state.top(), assets);
 }
